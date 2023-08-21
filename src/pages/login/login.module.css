@@ -8,3 +8,7 @@
 .login-form-wrapper {
   width: 500px;
 }
+
+.loginFormHeader {
+  background-color: var(--color-bg-modal-header);
+}
