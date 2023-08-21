@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+import Banner from "@/components/BannerTwoColumn";
 import MovieCard from "@/components/MovieCard";
 import MainLayout from "@/layouts/MainLayout";
 import { APP_ROUTES, NextPageWithLayout } from "@/utils";

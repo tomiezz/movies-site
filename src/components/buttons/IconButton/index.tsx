@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import React, { ComponentPropsWithRef, ReactNode } from "react";
+import CSS from "./icon-button.module.css";
+import Link from "next/link";
 
 type ButtonProps = {
   label?: string;
@@ -25,22 +27,32 @@ const IconButton = ({ type, label, children, props }: Props) => {
       return (
         <button
           {...props}
-          className={clsx("py-2 px-4 hover:scale-110	", props.className)}
+          className={clsx(
+            "py-2 px-4 hover:scale-110	",
+            props.className,
+            CSS["icon-button"]
+          )}
         >
           {label || children}
         </button>
       );
     case "link":
       return (
-        <a
+        <Link
+          href={props.href || "#"}
           tabIndex={0}
           role="button"
           aria-pressed="true"
           {...props}
-          className={clsx("py-1  hover:scale-110 px-4 block", props.className)}
+          className={clsx(
+            props.className,
+
+            "py-1  hover:scale-110 px-4 block",
+            CSS["icon-button"]
+          )}
         >
           {label || children}
-        </a>
+        </Link>
       );
 
     default:

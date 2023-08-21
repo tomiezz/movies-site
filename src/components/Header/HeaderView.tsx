@@ -52,16 +52,21 @@ const HeaderView = ({ type }: Props) => {
         )}
       >
         <div className={clsx("flex-1")}>
-          <Link
-            href={APP_ROUTES.HOME}
-            className={clsx(
-              CSS["logo-wrapper"],
-              "inline-block",
-              "align-middle"
-            )}
+          <IconButton
+            type="link"
+            props={{
+              href: APP_ROUTES.HOME,
+              className: clsx(
+                CSS["logo-wrapper"],
+                "inline-block",
+                "align-middle",
+                "py-0",
+                "px-0"
+              ),
+            }}
           >
             <Logo />
-          </Link>
+          </IconButton>
         </div>
         <IconButton type="link" props={{ href: APP_ROUTES.RESULT }}>
           <SearchIcon />
