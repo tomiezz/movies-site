@@ -16,7 +16,7 @@ export enum APP_ROUTES {
 export enum API_PATH {
   LOGIN = "/api/login",
   SIGNUP = "/api/signup",
-  LOGOUT = "/logout",
+  LOGOUT = "/api/logout",
 }
 
 export enum SERVER_STATUS_CODE {

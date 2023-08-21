@@ -11,16 +11,22 @@ import AccountIcon from "../svgs/AccountIcon";
 import LogoutIcon from "../svgs/LogoutIcon";
 
 type Props = {
-  type: "auth" | "unauth" | "login" | "signup";
+  type: "private" | "auth" | "login" | "signup" | "unauth";
+  onLogout?: () => void;
 };
 
-const HeaderView = ({ type }: Props) => {
+const HeaderView = ({ type, onLogout }: Props) => {
   const displayFuncButton = () => {
     switch (type) {
-      case "auth":
+      case "private":
         return (
-          <IconButton type="link" props={{ href: APP_ROUTES.PROFILE }}>
-            <AccountIcon />
+          <IconButton
+            type="button"
+            props={{
+              onClick: () => onLogout && onLogout(),
+            }}
+          >
+            <LogoutIcon />
           </IconButton>
         );
       case "login":
@@ -31,10 +37,16 @@ const HeaderView = ({ type }: Props) => {
             props={{ href: APP_ROUTES.SIGNUP }}
           />
         );
+      case "auth":
+        return (
+          <IconButton type="link" props={{ href: APP_ROUTES.PROFILE }}>
+            <AccountIcon />
+          </IconButton>
+        );
       case "unauth":
         return (
-          <IconButton type="button" props={{ onClick: () => {} }}>
-            <LogoutIcon />
+          <IconButton type="link" props={{ href: APP_ROUTES.LOGIN }}>
+            <AccountIcon />
           </IconButton>
         );
       case "signup":

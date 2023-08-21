@@ -2,10 +2,28 @@ import Banner from "@/components/BannerTwoColumn";
 import MovieCard from "@/components/MovieCard";
 import MainLayout from "@/layouts/MainLayout";
 import { APP_ROUTES, NextPageWithLayout } from "@/utils";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
 import { ReactElement } from "react";
+import * as cookieLib from "cookie";
 
-const Home: NextPageWithLayout = () => {
+export const getServerSideProps: GetServerSideProps<{
+  user?: string | null;
+}> = async (ctx) => {
+  let cookie = cookieLib.parse(ctx?.req.headers.cookie || "");
+
+  let user = null;
+
+  if (cookie && cookie?.auth === "true") {
+    user = "tomiez";
+  }
+
+  return { props: { user } };
+};
+
+const Home: NextPageWithLayout = ({
+  user,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <div role="banner" className="bg-black ">
@@ -25,8 +43,8 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout>{page}</MainLayout>;
+Home.getLayout = function getLayout(page: ReactElement, user) {
+  return <MainLayout user={user}>{page}</MainLayout>;
 };
 
 export default Home;

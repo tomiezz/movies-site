@@ -9,12 +9,13 @@ const interFont = Inter({ subsets: ["latin"] });
 const montserratFont = Montserrat({ subsets: ["latin"] });
 type Props = {
   children?: ReactNode;
+  user?: string;
 };
 
-const MainLayout = ({ children }: Props) => {
+const MainLayout = ({ children, user }: Props) => {
   return (
     <>
-      <Header />
+      <Header user={user} />
       <main className={clsx(CSS.main, montserratFont.className)}>
         {children}
       </main>

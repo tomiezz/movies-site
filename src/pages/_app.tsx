@@ -11,6 +11,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <ErrorBoundary>{getLayout(<Component {...pageProps} />)}</ErrorBoundary>
+    <ErrorBoundary>
+      {getLayout(<Component {...pageProps} />, pageProps?.user)}
+    </ErrorBoundary>
   );
 }

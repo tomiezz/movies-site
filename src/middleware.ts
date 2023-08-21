@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   let authCookie = request.cookies.get("auth");
 
   if (authCookie?.value === "true") {
-    return;
+    return NextResponse.next();
   }
 
   return NextResponse.redirect(new URL("/", request.url));
@@ -15,5 +15,5 @@ export function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: [APP_ROUTES.PROFILE],
+  matcher: "/profile",
 };
