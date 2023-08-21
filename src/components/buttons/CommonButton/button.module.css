@@ -1,0 +1,4 @@
+.common-button {
+  border: 1px solid var(--color-text-contrast);
+  font-size: 12px;
+}

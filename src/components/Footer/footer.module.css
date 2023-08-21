@@ -1,0 +1,6 @@
+.footer {
+  height: var(--height-footer);
+  background-color: var(--color-bg-header);
+  color: var(--color-text-contrast);
+  font-size: 12px;
+}
