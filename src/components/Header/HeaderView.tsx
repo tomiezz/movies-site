@@ -8,9 +8,10 @@ import Button from "../buttons/CommonButton";
 import IconButton from "../buttons/IconButton";
 import { APP_ROUTES } from "@/utils";
 import AccountIcon from "../svgs/AccountIcon";
+import LogoutIcon from "../svgs/LogoutIcon";
 
 type Props = {
-  type: "auth" | "login" | "signup";
+  type: "auth" | "unauth" | "login" | "signup";
 };
 
 const HeaderView = ({ type }: Props) => {
@@ -29,6 +30,12 @@ const HeaderView = ({ type }: Props) => {
             label="Sign up"
             props={{ href: APP_ROUTES.SIGNUP }}
           />
+        );
+      case "unauth":
+        return (
+          <IconButton type="button" props={{ onClick: () => {} }}>
+            <LogoutIcon />
+          </IconButton>
         );
       case "signup":
         return (

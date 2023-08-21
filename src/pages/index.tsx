@@ -14,7 +14,7 @@ const Home: NextPageWithLayout = () => {
         </div>
       </div>
       <h1 className="text-center my-8 text-2xl font-medium">Movies</h1>
-      <section className="max-w-[1600px] m-auto flex flex-wrap ">
+      <section className="max-w-[1600px] m-auto flex flex-wrap md:mb-16">
         {[1, 2, 3, 4, 5, 6].map((item, idx) => (
           <div key={idx} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-3">
             <MovieCard href={APP_ROUTES.DETAIL} />

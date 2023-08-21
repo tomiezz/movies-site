@@ -17,7 +17,7 @@ const Header = () => {
       ? "login"
       : router.pathname === APP_ROUTES.SIGNUP
       ? "signup"
-      : "auth";
+      : "unauth";
 
   return <HeaderView type={type} />;
 };
