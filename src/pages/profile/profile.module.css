@@ -1,0 +1,11 @@
+.profile {
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - var(--height-header) - var(--height-footer));
+  }
+}

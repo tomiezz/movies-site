@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { ComponentPropsWithRef, ReactNode } from "react";
+import React, { ComponentPropsWithRef, ReactNode, memo } from "react";
 import CSS from "./button.module.css";
 
 type ButtonProps = {
@@ -55,4 +55,4 @@ const Button = ({ type, label, children, props }: Props) => {
   }
 };
 
-export default Button;
+export default memo(Button);
