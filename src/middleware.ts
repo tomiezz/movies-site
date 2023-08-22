@@ -1,4 +1,4 @@
-import { APP_ROUTES } from "@/utils";
+import { APP_ROUTES, AccountType } from "@/utils";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 

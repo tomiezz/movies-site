@@ -5,7 +5,7 @@ import React, { ReactElement } from "react";
 import CSS from "./detail.module.css";
 import * as cookieLib from "cookie";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { recommendMovies } from "@/utils/models";
+import { allMovies, recommendMovies } from "@/utils/models";
 
 export const getServerSideProps: GetServerSideProps<{
   user?: string | null;
@@ -19,14 +19,14 @@ export const getServerSideProps: GetServerSideProps<{
     user = "tomiez";
   }
 
-  const result = recommendMovies.find((item) => {
+  const result = allMovies.find((item) => {
     return `${item.id}` === ctx.params?.id;
   });
 
   return {
     props: {
       user,
-      data: result ? result : null,
+      data: result ? (result as MovieType) : null,
     },
   };
 };

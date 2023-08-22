@@ -1,18 +1,21 @@
-import { SERVER_STATUS_CODE } from "@/utils";
+import { AccountType, SERVER_STATUS_CODE } from "@/utils";
 import { setCookie } from "@/utils";
 import { NextApiRequest, NextApiResponse } from "next";
+import { accounts } from "./register";
 
-const isAuth = (username?: string, password?: string) => {
-  console.log("IS AUTH: ", username, password);
-
-  return username === "admin" && password === "12345678";
+const isAuth = (accounts: AccountType[], formBody: any) => {
+  return accounts.find(
+    (item) =>
+      item.username === formBody?.username &&
+      item.password === formBody?.password
+  );
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    console.log(JSON.stringify(req.body));
+    console.log("ACCOUNT:", accounts);
 
-    if (isAuth(req.body?.username, req.body?.password)) {
+    if (isAuth(accounts, req.body)) {
       setCookie(res, "auth", "true", {
         path: "/",
         maxAge: 60 * 60 * 24,

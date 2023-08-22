@@ -11,4 +11,9 @@ export type ServerMessageType = {
   message?: string;
 };
 
+export type AccountType = {
+  username?: string;
+  password?: string;
+};
+
 export type MovieType = Partial<typeof movie>;

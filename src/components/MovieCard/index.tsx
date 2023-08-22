@@ -66,7 +66,9 @@ const MoviewCard = ({
       >
         <h2 className="font-medium text-base md:text-lg truncate">{title}</h2>
         <p className="mt-4 line-clamp-3 text-sm">{descripttion}</p>
-        <p className="text-sm md:text-base my-4">Genres: {genres}</p>
+        <p className="text-sm md:text-base my-4">
+          {genres && `Genres: ${genres}`}
+        </p>
       </div>
     </Link>
   );
