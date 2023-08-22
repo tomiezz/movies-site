@@ -24,14 +24,6 @@ const ResultContainer = ({ data: serverData, children }: Props) => {
     } catch (err) {}
   };
 
-  useEffect(() => {
-    if (router.query) {
-      getResult({
-        s: router.query.s as string,
-      });
-    }
-  }, [router.query]);
-
   return (
     <MovieResultContext.Provider
       value={{

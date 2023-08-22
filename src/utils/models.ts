@@ -19,27 +19,6 @@ export const movie = {
 export const trendingMovies = [
   {
     adult: false,
-    backdrop_path: "/zxnfMi4qW0bdAtcwCogrR9dRrqd.jpg",
-    genre_ids: [878, 9648, 53],
-    id: 1103825,
-    original_language: "en",
-    original_title: "War of the Worlds: The Attack",
-    overview:
-      "Three young astronomers fight to survive a deadly Martian invasion.",
-    popularity: 379.327,
-    poster_path: "/c3CUKHtQUvPvp9NSFsKwYsPLAdW.jpg",
-    release_date: "2023-04-21",
-    title: "War of the Worlds: The Attack",
-    video: false,
-    vote_average: 5.389,
-    vote_count: 104,
-  },
-];
-
-export const recommendMovies = [
-  ...trendingMovies,
-  {
-    adult: false,
     backdrop_path: "/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
     genre_ids: [16, 28, 12, 878],
     id: 569094,
@@ -55,40 +34,45 @@ export const recommendMovies = [
     vote_average: 8.458,
     vote_count: 3616,
   },
-  {
-    adult: false,
-    backdrop_path: "/zh614Bixv2ePaHK8gzcUpUmcvYv.jpg",
-    genre_ids: [53, 28, 80],
-    id: 1102776,
-    original_language: "fr",
-    original_title: "AKA",
-    overview:
-      "A steely special ops agent finds his morality put to the test when he infiltrates a crime syndicate and unexpectedly bonds with the boss' young son.",
-    popularity: 127.777,
-    poster_path: "/3BSxAjiporlwQTWzaHZ9Yrl5C9D.jpg",
-    release_date: "2023-04-28",
-    title: "AKA",
-    video: false,
-    vote_average: 6.972,
-    vote_count: 486,
-  },
-  {
-    adult: false,
-    backdrop_path: "/xnAi4BRoO3ZQ3wwxGn6UNoxQzDq.jpg",
-    genre_ids: [80, 28],
-    id: 823999,
-    original_language: "it",
-    original_title: "Diabolik - Ginko all'attacco!",
-    overview:
-      "Diabolik nearly gets caught in Inspector Ginko's latest trap, leaving his partner in crime Eva Kant behind in the escape. Furious, Eva offers Ginko her help in capturing the King of Terror, but the former has to face the return of an old flame of his.",
-    popularity: 57.562,
-    poster_path: "/8QVbWBv94BAT9u1q9uJccwOxMzt.jpg",
-    release_date: "2022-11-17",
-    title: "Diabolik - Ginko Attacks",
-    video: false,
-    vote_average: 6.057,
-    vote_count: 357,
-  },
+  // {
+  //   adult: false,
+  //   backdrop_path: "/zh614Bixv2ePaHK8gzcUpUmcvYv.jpg",
+  //   genre_ids: [53, 28, 80],
+  //   id: 1102776,
+  //   original_language: "fr",
+  //   original_title: "AKA",
+  //   overview:
+  //     "A steely special ops agent finds his morality put to the test when he infiltrates a crime syndicate and unexpectedly bonds with the boss' young son.",
+  //   popularity: 127.777,
+  //   poster_path: "/3BSxAjiporlwQTWzaHZ9Yrl5C9D.jpg",
+  //   release_date: "2023-04-28",
+  //   title: "AKA",
+  //   video: false,
+  //   vote_average: 6.972,
+  //   vote_count: 486,
+  // },
+  // {
+  //   adult: false,
+  //   backdrop_path: "/xnAi4BRoO3ZQ3wwxGn6UNoxQzDq.jpg",
+  //   genre_ids: [80, 28],
+  //   id: 823999,
+  //   original_language: "it",
+  //   original_title: "Diabolik - Ginko all'attacco!",
+  //   overview:
+  //     "Diabolik nearly gets caught in Inspector Ginko's latest trap, leaving his partner in crime Eva Kant behind in the escape. Furious, Eva offers Ginko her help in capturing the King of Terror, but the former has to face the return of an old flame of his.",
+  //   popularity: 57.562,
+  //   poster_path: "/8QVbWBv94BAT9u1q9uJccwOxMzt.jpg",
+  //   release_date: "2022-11-17",
+  //   title: "Diabolik - Ginko Attacks",
+  //   video: false,
+  //   vote_average: 6.057,
+  //   vote_count: 357,
+  // },
+];
+
+export const recommendMovies = [
+  ...trendingMovies,
+
   {
     adult: false,
     backdrop_path: "/2UBspLYMarpT0YDgymFBswOXwwk.jpg",

@@ -6,6 +6,7 @@ import CSS from "./detail.module.css";
 import * as cookieLib from "cookie";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { allMovies, recommendMovies } from "@/utils/models";
+import { redirect } from "next/navigation";
 
 export const getServerSideProps: GetServerSideProps<{
   user?: string | null;
@@ -22,6 +23,15 @@ export const getServerSideProps: GetServerSideProps<{
   const result = allMovies.find((item) => {
     return `${item.id}` === ctx.params?.id;
   });
+
+  if (!result) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {

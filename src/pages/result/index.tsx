@@ -19,9 +19,9 @@ export const getServerSideProps: GetServerSideProps<{
   let cookie = cookieLib.parse(ctx?.req.headers.cookie || "");
 
   const result = allMovies.filter((item) => {
-    return item.title
-      .toLowerCase()
-      .includes(String(ctx.query?.s).toLowerCase());
+    return ctx.query?.s
+      ? item.title.toLowerCase().includes(String(ctx.query?.s).toLowerCase())
+      : true;
   });
 
   console.log(ctx.query?.s);

@@ -15,7 +15,7 @@ import {
 const ResultPageView = () => {
   return (
     <div className="p-4 max-w-[1600px]">
-      <h1 className="text-xl font-medium ">Search Movies</h1>
+      <h1 className="text-xl font-medium px-2 md:px-0 ">Search Movies</h1>
       {/* <SearchBox /> */}
       <div className="md:hidden">
         <SearchPanelMobile />

@@ -21,7 +21,7 @@ export const SearchPanelMobile = () => {
   const { ref, onSearch } = useSearchPanel();
 
   return (
-    <aside className="md:hidden ">
+    <aside className="md:hidden p-2 md:p-0">
       <SearchBox ref={ref} onSearch={onSearch} />
     </aside>
   );
