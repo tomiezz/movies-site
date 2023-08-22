@@ -10,6 +10,7 @@ import LoginPageView from "./LoginPageView";
 import { login } from "@/features/authentication/serivce";
 import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/router";
+import { AxiosError } from "axios";
 
 const Login: NextPageWithLayout = () => {
   const [serverMessage, setServerMessage] = useState<ServerMessageType>();
@@ -20,8 +21,15 @@ const Login: NextPageWithLayout = () => {
       const res = await login(data);
       //   setServerMessage({ type: "success", message: "Logged in" });
       router.push(APP_ROUTES.HOME);
-    } catch (error) {
-      setServerMessage({ type: "error", message: "Wrong credentials" });
+    } catch (err) {
+      const error = err as AxiosError;
+      if (error.response) {
+        setServerMessage({ type: "error", message: "Wrong credentials" });
+      } else if (error?.request) {
+        setServerMessage({ type: "error", message: "Server error" });
+      } else {
+        setServerMessage({ type: "error", message: "Something went wrong" });
+      }
     }
   };
 

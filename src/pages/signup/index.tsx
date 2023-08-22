@@ -5,6 +5,7 @@ import SignupForm, {
 import { register } from "@/features/authentication/serivce";
 import BlankLayout from "@/layouts/BlankLayout";
 import { APP_ROUTES, NextPageWithLayout, ServerMessageType } from "@/utils";
+import { AxiosError } from "axios";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import React, { ReactElement, useState } from "react";
@@ -17,8 +18,15 @@ const Signup: NextPageWithLayout = () => {
       const res = await register(data);
       setServerMessage({ type: "success", message: "Register successfully!" });
       //   router.push(APP_ROUTES.HOME);
-    } catch (error) {
-      setServerMessage({ type: "error", message: "Wrong credentials" });
+    } catch (err) {
+      const error = err as AxiosError;
+      if (error.response) {
+        setServerMessage({ type: "error", message: "Somethings went wrong" });
+      } else if (error?.request) {
+        setServerMessage({ type: "error", message: "Server error" });
+      } else {
+        setServerMessage({ type: "error", message: "Somethings went wrong" });
+      }
     }
   };
 

@@ -41,7 +41,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     resolver: yupResolver(schemaValidation),
   });
 
-  const submitForm = (data: LoginFormType) => {
+  const submitForm = (data: SignupFormType) => {
     console.log(data);
 
     if (onSubmit) {
