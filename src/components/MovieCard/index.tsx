@@ -8,22 +8,42 @@ import IconButton from "../buttons/IconButton";
 import LikeIcon from "../svgs/LikeIcon";
 import SaveIcon from "../svgs/SaveIcon";
 
-type Props = LinkProps;
+type Props = LinkProps & {
+  title?: string;
+  descripttion?: string;
+  imgUrl?: string;
+  genres?: string;
+};
 
-const MoviewCard = (props: Props) => {
+const MoviewCard = ({
+  title,
+  descripttion,
+  genres,
+  imgUrl,
+  ...linkProps
+}: Props) => {
   return (
     <Link
-      {...props}
+      {...linkProps}
       className={clsx(
         CSS["movie-card"],
         "bg-black relative block aspect-[5/5] md:aspect-[6/7]"
       )}
     >
-      <Image
-        alt="TODO"
-        src={MockBannerImg}
-        className="w-full object-cover h-full "
-      />
+      {imgUrl ? (
+        <Image
+          className="w-full object-cover h-full"
+          src={imgUrl}
+          alt={title || "Image"}
+          fill
+        />
+      ) : (
+        <Image
+          className="w-full object-cover h-full"
+          src={MockBannerImg}
+          alt="Play Starfield up to 5 Days Early"
+        />
+      )}
       <div className=" flex absolute top-0 w-full justify-between">
         <IconButton
           type="button"
@@ -44,16 +64,9 @@ const MoviewCard = (props: Props) => {
           CSS["movie-content"]
         )}
       >
-        <h2 className="font-medium text-base md:text-lg truncate">
-          Starfield Animated Anthology
-        </h2>
-        <p className="mt-4 line-clamp-3 text-sm">
-          Starfield is launching on September 6. Check out the full Starfield
-          Direct for a deeper look into the game and get ready for launch with
-          all the details on pre-orders, early access and the various game
-          editions.
-        </p>
-        <p className="text-sm md:text-base my-4">Genres: Action, Drama</p>
+        <h2 className="font-medium text-base md:text-lg truncate">{title}</h2>
+        <p className="mt-4 line-clamp-3 text-sm">{descripttion}</p>
+        <p className="text-sm md:text-base my-4">Genres: {genres}</p>
       </div>
     </Link>
   );

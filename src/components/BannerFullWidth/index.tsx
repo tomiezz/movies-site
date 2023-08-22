@@ -5,7 +5,12 @@ import CSS from "./banner-full-width.module.css";
 import clsx from "clsx";
 import Rating from "../Rating";
 
-const BannerFullWidth = () => {
+type Props = {
+  title?: string;
+  imgUrl?: string;
+};
+
+const BannerFullWidth = ({ title, imgUrl }: Props) => {
   return (
     <div
       className={clsx(
@@ -13,15 +18,23 @@ const BannerFullWidth = () => {
         CSS.bannerGradient
       )}
     >
-      <Image
-        className="w-full object-cover h-full"
-        src={MockBannerImg}
-        alt="Play Starfield up to 5 Days Early"
-      />
+      {imgUrl ? (
+        <Image
+          className="w-full object-cover h-full"
+          src={imgUrl}
+          alt={title || "Image"}
+          fill
+        />
+      ) : (
+        <Image
+          className="w-full object-cover h-full"
+          src={MockBannerImg}
+          alt="Play Starfield up to 5 Days Early"
+        />
+      )}
+
       <div className="text-white flex items-center flex-col justify-center flex-1 p-4 items-center md:justify-center items-start absolute top-0 w-full h-full p-4 z-10">
-        <h2 className="mb-4 font-medium text-center md:text-xl">
-          Play Starfield up to 5 Days Early Play Starfield up to 5 Days Early
-        </h2>
+        <h2 className="mb-4 font-medium text-center md:text-xl">{title}</h2>
         <Rating />
       </div>
     </div>

@@ -1,35 +1,67 @@
 import BannerFullWidth from "@/components/BannerFullWidth";
 import MainLayout from "@/layouts/MainLayout";
-import { NextPageWithLayout } from "@/utils";
+import { MovieType, NextPageWithLayout, resolveMovieImg } from "@/utils";
 import React, { ReactElement } from "react";
 import CSS from "./detail.module.css";
+import * as cookieLib from "cookie";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { recommendMovies } from "@/utils/models";
 
-const DetailPage: NextPageWithLayout = () => {
+export const getServerSideProps: GetServerSideProps<{
+  user?: string | null;
+  data?: MovieType | null;
+}> = async (ctx) => {
+  let cookie = cookieLib.parse(ctx?.req.headers.cookie || "");
+
+  let user = null;
+
+  if (cookie && cookie?.auth === "true") {
+    user = "tomiez";
+  }
+
+  const result = recommendMovies.find((item) => {
+    return `${item.id}` === ctx.params?.id;
+  });
+
+  return {
+    props: {
+      user,
+      data: result ? result : null,
+    },
+  };
+};
+
+const DetailPage = ({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div className={CSS.detail}>
       <div role="banner" className="bg-black ">
         <div className="max-w-[1600px] m-auto ">
-          <BannerFullWidth />
+          <BannerFullWidth
+            title={data?.title}
+            imgUrl={resolveMovieImg(data?.backdrop_path)}
+          />
         </div>
       </div>
       <div className="p-4">
         <div>
-          <h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
+          <h3>{data?.title}</h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <h3>
-            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by
-            Cicero in 45 BC
+            Section 1.10.32 of de Finibus Bonorum et Malorum, written by Cicero
+            in 45 BC
           </h3>
           <p>
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             quae ab illo inventore veritatis et quasi architecto beatae vitae
             dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -42,11 +74,11 @@ const DetailPage: NextPageWithLayout = () => {
             aliquid ex ea commodi consequatur? Quis autem vel eum iure
             reprehenderit qui in ea voluptate velit esse quam nihil molestiae
             consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-            pariatur?"
+            pariatur?
           </p>
           <h3>1914 translation by H. Rackham</h3>
           <p>
-            "But I must explain to you how all this mistaken idea of denouncing
+            But I must explain to you how all this mistaken idea of denouncing
             pleasure and praising pain was born and I will give you a complete
             account of the system, and expound the actual teachings of the great
             explorer of the truth, the master-builder of human happiness. No one
@@ -60,14 +92,14 @@ const DetailPage: NextPageWithLayout = () => {
             undertakes laborious physical exercise, except to obtain some
             advantage from it? But who has any right to find fault with a man
             who chooses to enjoy a pleasure that has no annoying consequences,
-            or one who avoids a pain that produces no resultant pleasure?"
+            or one who avoids a pain that produces no resultant pleasure?
           </p>
           <h3>
-            Section 1.10.33 of "de Finibus Bonorum et Malorum", written by
-            Cicero in 45 BC
+            Section 1.10.33 of de Finibus Bonorum et Malorum, written by Cicero
+            in 45 BC
           </h3>
           <p>
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
             blanditiis praesentium voluptatum deleniti atque corrupti quos
             dolores et quas molestias excepturi sint occaecati cupiditate non
             provident, similique sunt in culpa qui officia deserunt mollitia
@@ -79,11 +111,11 @@ const DetailPage: NextPageWithLayout = () => {
             rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
             et molestiae non recusandae. Itaque earum rerum hic tenetur a
             sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat."
+            consequatur aut perferendis doloribus asperiores repellat.
           </p>
           <h3>1914 translation by H. Rackham</h3>
           <p>
-            "On the other hand, we denounce with righteous indignation and
+            On the other hand, we denounce with righteous indignation and
             dislike men who are so beguiled and demoralized by the charms of
             pleasure of the moment, so blinded by desire, that they cannot
             foresee the pain and trouble that are bound to ensue; and equal
@@ -98,7 +130,7 @@ const DetailPage: NextPageWithLayout = () => {
             annoyances accepted. The wise man therefore always holds in these
             matters to this principle of selection: he rejects pleasures to
             secure other greater pleasures, or else he endures pains to avoid
-            worse pains."
+            worse pains.
           </p>
         </div>
       </div>
