@@ -1,3 +1,4 @@
 .main {
-  height: calc(100vh - var(--height-header));
+  height: 100vh;
+  padding-top: var(--height-header);
 }

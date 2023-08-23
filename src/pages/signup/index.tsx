@@ -32,7 +32,7 @@ const Signup: NextPageWithLayout = () => {
 
   return (
     <div className={clsx("h-full flex items-center justify-center")}>
-      <div className="m-4 md:m-0 w-[500px] ">
+      <div className="md:m-0 w-[500px] ">
         <div className={clsx("shadow-md m-4 md:m-0 border-form")}>
           <h2
             className={clsx(
