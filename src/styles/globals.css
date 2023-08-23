@@ -19,24 +19,6 @@
   /* --------------------- */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Text color variables */
-    --color-text-main: #fff;
-    --color-text-contrast: #000;
-    /* --------------------- */
-    /* Application color variables */
-    --color-bg-header: #202020;
-    --color-bg-modal-header: #f1f1f1;
-    /* --------------------- */
-    /* Application units variables */
-    --height-header: 50px;
-    --height-footer: 50px;
-
-    /* --------------------- */
-  }
-}
-
 html,
 body {
   height: 100%;
