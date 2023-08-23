@@ -63,14 +63,14 @@ const HeaderView = ({ type, onLogout, showSearch }: Props) => {
       default:
         return null;
     }
-  }, []);
+  }, [type, onLogout]);
 
   return (
     <header className={clsx(CSS.header)}>
       <div
         className={clsx(
           CSS.header,
-          "flex items-center px-4 pl-0 md:pl-4 md:px-8 max-w-[1664px] m-auto"
+          "flex items-center md:px-4 px-0 md:pl-4 md:px-8 max-w-[1664px] m-auto"
         )}
       >
         <div className={clsx("flex-1")}>

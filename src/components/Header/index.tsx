@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import Logo from "../svgs/Logo";
 import SearchIcon from "../svgs/SearchIcon";
 import CSS from "./header.module.css";
@@ -33,14 +33,15 @@ const Header = ({ user }: Props) => {
 
   const showSearch = router.pathname !== APP_ROUTES.RESULT;
 
-  const handleLogout = async () => {
+  const handleLogout = useCallback(async () => {
     try {
       await logout();
       router.push(APP_ROUTES.LOGIN);
     } catch (err) {
       console.log(err);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <HeaderView showSearch={showSearch} type={type} onLogout={handleLogout} />
