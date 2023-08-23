@@ -71,6 +71,7 @@ export const trendingMovies = [
 ];
 
 export const recommendMovies = [
+  movie,
   {
     adult: false,
     backdrop_path: "/2UBspLYMarpT0YDgymFBswOXwwk.jpg",
@@ -766,4 +767,5 @@ export const allMovies = [
     vote_count: 195,
   },
   ...recommendMovies,
+  ...trendingMovies,
 ];
