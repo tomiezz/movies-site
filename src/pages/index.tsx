@@ -12,6 +12,7 @@ import Image from "next/image";
 import { ReactElement } from "react";
 import * as cookieLib from "cookie";
 import { recommendMovies, trendingMovies } from "@/utils/models";
+import SlideShow from "@/components/SlideShow";
 
 export const getServerSideProps: GetServerSideProps<{
   user?: string | null;
@@ -44,15 +45,17 @@ const Home = ({
     <div>
       <div role="banner" className="bg-black ">
         <div className="max-w-[1600px] m-auto ">
-          {trendingMovies?.map((item) => (
-            <Banner
-              key={item.id}
-              title={item.title}
-              descripttion={item.overview}
-              href={`${APP_ROUTES.DETAIL}/${item.id}`}
-              imgUrl={resolveMovieImg(item.backdrop_path)}
-            />
-          ))}
+          <SlideShow autoPlay duration={5000}>
+            {trendingMovies?.map((item) => (
+              <Banner
+                key={item.id}
+                title={item.title}
+                descripttion={item.overview}
+                href={`${APP_ROUTES.DETAIL}/${item.id}`}
+                imgUrl={resolveMovieImg(item.backdrop_path)}
+              />
+            ))}
+          </SlideShow>
         </div>
       </div>
       <h1 className="text-center my-8 text-2xl font-medium">Movies</h1>

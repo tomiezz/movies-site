@@ -49,3 +49,17 @@ html {
 .border-form {
   border: 2px solid var(--color-bg-modal-header);
 }
+
+.slide-fade {
+  animation-name: slide-fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes slide-fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
