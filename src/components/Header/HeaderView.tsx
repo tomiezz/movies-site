@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import Logo from "../svgs/Logo";
 import SearchIcon from "../svgs/SearchIcon";
 import CSS from "./header.module.css";
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const HeaderView = ({ type, onLogout, showSearch }: Props) => {
-  const displayFuncButton = () => {
+  const displayFuncButton = useCallback(() => {
     switch (type) {
       case "private":
         return (
@@ -63,7 +63,7 @@ const HeaderView = ({ type, onLogout, showSearch }: Props) => {
       default:
         return null;
     }
-  };
+  }, []);
 
   return (
     <header className={clsx(CSS.header)}>

@@ -148,8 +148,8 @@ const DetailPage = ({
   );
 };
 
-DetailPage.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout>{page}</MainLayout>;
+DetailPage.getLayout = function getLayout(page: ReactElement, user: any) {
+  return <MainLayout user={user}>{page}</MainLayout>;
 };
 
 export default DetailPage;
