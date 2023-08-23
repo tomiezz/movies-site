@@ -2,7 +2,7 @@
 
  <img src="./src/assets/screen-shot.png">
 
-### Basic Overview
+### Basic Overview - [Live Demo](http://ec2-54-199-109-234.ap-northeast-1.compute.amazonaws.com:3000/)
 
 A web application about watching movies built upon Next.js
 
@@ -13,6 +13,8 @@ A web application about watching movies built upon Next.js
 - Typescript
 - Tailwindcss
 - react-hook-form
+- Docker
+- AWS EC2
 
 #### Features
 
