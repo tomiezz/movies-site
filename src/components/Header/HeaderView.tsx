@@ -35,7 +35,7 @@ const HeaderView = ({ type, onLogout, showSearch }: Props) => {
           <Button
             type="link"
             label="Sign up"
-            props={{ href: APP_ROUTES.SIGNUP }}
+            props={{ href: APP_ROUTES.SIGNUP, className: "mr-4 md:mr-0" }}
           />
         );
       case "auth":
@@ -49,7 +49,7 @@ const HeaderView = ({ type, onLogout, showSearch }: Props) => {
           <Button
             type="link"
             label="Log in"
-            props={{ href: APP_ROUTES.LOGIN }}
+            props={{ href: APP_ROUTES.LOGIN, className: "mr-4 md:mr-0" }}
           />
         );
       case "signup":
@@ -57,7 +57,7 @@ const HeaderView = ({ type, onLogout, showSearch }: Props) => {
           <Button
             type="link"
             label="Log in"
-            props={{ href: APP_ROUTES.LOGIN }}
+            props={{ href: APP_ROUTES.LOGIN, className: "mr-4 md:mr-0" }}
           />
         );
       default:
