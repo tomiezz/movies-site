@@ -13,8 +13,8 @@ type Props = {
 
 const ProfilePage: NextPageWithLayout = ({ isEditting = false }: Props) => {
   return (
-    <div className={clsx("p-4 h-full md:max-w-[1600px]", CSS.profile)}>
-      <div className="md:border  md:w-[500px] md:shadow-md m-auto border-form">
+    <div className={clsx("p-4 h-full md:max-w-[1600px] m-auto", CSS.profile)}>
+      <div className="md:border  md:w-[500px] md:shadow-md m-auto ">
         <h1 className="md:p-4 text-xl  uppercase font-medium md:text-center md:text-xl md:bg-[#f1f1f1]">
           Profile
         </h1>

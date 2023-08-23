@@ -28,8 +28,8 @@ const IconButton = ({ type, label, children, props }: Props) => {
         <button
           {...props}
           className={clsx(
-            "py-2 px-4 hover:scale-110	",
             props.className,
+            "py-2 px-4 hover:scale-110	",
             CSS["icon-button"]
           )}
         >

@@ -54,7 +54,7 @@ const DetailPage = ({
           />
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4 max-w-[1600px] m-auto">
         <div>
           <h3>{data?.title}</h3>
           <p>

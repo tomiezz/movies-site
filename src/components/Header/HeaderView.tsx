@@ -45,9 +45,11 @@ const HeaderView = ({ type, onLogout }: Props) => {
         );
       case "unauth":
         return (
-          <IconButton type="link" props={{ href: APP_ROUTES.LOGIN }}>
-            <AccountIcon />
-          </IconButton>
+          <Button
+            type="link"
+            label="Log in"
+            props={{ href: APP_ROUTES.LOGIN }}
+          />
         );
       case "signup":
         return (
