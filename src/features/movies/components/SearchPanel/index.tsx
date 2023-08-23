@@ -10,8 +10,6 @@ export const SearchPanelDesktop = () => {
     <aside className="py-2 flex-1  hidden md:block max-w-[300px] ">
       <div className="border p-4 border-current">
         <SearchBox ref={ref} onSearch={onSearch} />
-        {/* <div>Genres</div>
-<div>Sort</div> */}
       </div>
     </aside>
   );

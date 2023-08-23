@@ -24,8 +24,6 @@ export const getServerSideProps: GetServerSideProps<{
       : true;
   });
 
-  console.log(ctx.query?.s);
-
   let user = null;
 
   if (cookie && cookie?.auth === "true") {

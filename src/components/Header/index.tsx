@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Logo from "../svgs/Logo";
 import SearchIcon from "../svgs/SearchIcon";
 import CSS from "./header.module.css";
@@ -31,6 +31,8 @@ const Header = ({ user }: Props) => {
       ? "auth"
       : "unauth";
 
+  const showSearch = router.pathname !== APP_ROUTES.RESULT;
+
   const handleLogout = async () => {
     try {
       await logout();
@@ -40,7 +42,9 @@ const Header = ({ user }: Props) => {
     }
   };
 
-  return <HeaderView type={type} onLogout={handleLogout} />;
+  return (
+    <HeaderView showSearch={showSearch} type={type} onLogout={handleLogout} />
+  );
 };
 
-export default Header;
+export default memo(Header);

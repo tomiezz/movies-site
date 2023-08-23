@@ -12,10 +12,11 @@ import LogoutIcon from "../svgs/LogoutIcon";
 
 type Props = {
   type: "private" | "auth" | "login" | "signup" | "unauth";
+  showSearch?: boolean;
   onLogout?: () => void;
 };
 
-const HeaderView = ({ type, onLogout }: Props) => {
+const HeaderView = ({ type, onLogout, showSearch }: Props) => {
   const displayFuncButton = () => {
     switch (type) {
       case "private":
@@ -69,7 +70,7 @@ const HeaderView = ({ type, onLogout }: Props) => {
       <div
         className={clsx(
           CSS.header,
-          "flex items-center px-4 md:px-8 max-w-[1664px] m-auto"
+          "flex items-center px-4 pl-0 md:pl-4 md:px-8 max-w-[1664px] m-auto"
         )}
       >
         <div className={clsx("flex-1")}>
@@ -89,9 +90,11 @@ const HeaderView = ({ type, onLogout }: Props) => {
             <Logo />
           </IconButton>
         </div>
-        <IconButton type="link" props={{ href: APP_ROUTES.RESULT }}>
-          <SearchIcon />
-        </IconButton>
+        {showSearch ? (
+          <IconButton type="link" props={{ href: APP_ROUTES.RESULT }}>
+            <SearchIcon />
+          </IconButton>
+        ) : null}
         {displayFuncButton()}
       </div>
     </header>
