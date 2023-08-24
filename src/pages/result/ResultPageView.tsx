@@ -14,7 +14,7 @@ import {
 
 const ResultPageView = () => {
   return (
-    <div className="py-4 px-2 md:px-0 max-w-[1600px] m-auto">
+    <div className="py-4 px-2 md:px-3 max-w-[1600px] m-auto">
       <h1 className="text-xl font-medium px-2 md:px-0 ">Search Movies</h1>
       {/* <SearchBox /> */}
       <div className="md:hidden">
