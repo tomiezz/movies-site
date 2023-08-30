@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev -p 3002",
     "build": "next build",
-    "start": "pm2 start './node_modules/.bin/next start'",
-    "lint": "next lint"
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
@@ -26,13 +28,25 @@
     "react-hook-form": "^7.45.4",
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
+    "storybook-css-modules": "^1.0.8",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.3.2",
+    "@storybook/addon-interactions": "^7.3.2",
+    "@storybook/addon-links": "^7.3.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling": "^1.3.7",
+    "@storybook/blocks": "^7.3.2",
+    "@storybook/nextjs": "^7.3.2",
+    "@storybook/react": "^7.3.2",
+    "@storybook/testing-library": "^0.2.0",
     "@types/cookie": "^0.5.1",
     "@types/react-slick": "^0.23.10",
-    "sass": "^1.66.1"
+    "eslint-plugin-storybook": "^0.6.13",
+    "sass": "^1.66.1",
+    "storybook": "^7.3.2"
   }
 }

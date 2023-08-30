@@ -18,11 +18,11 @@ const ResultPageView = () => {
       <h1 className="text-xl font-medium px-2 md:px-0 ">Search Movies</h1>
       {/* <SearchBox /> */}
       <div className="md:hidden">
-        <SearchPanelMobile />
+        <ResultContainer.SearchMobile />
       </div>
 
       <div className="flex ">
-        <SearchPanelDesktop />
+        <ResultContainer.SearchDesktop />
 
         <section className="mt-4 md:mt-0 flex-1  m-auto flex flex-wrap ">
           <ResultContainer.Result />

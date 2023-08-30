@@ -5,6 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["image.tmdb.org"],
+    minimumCacheTTL: 60,
   },
 };
 

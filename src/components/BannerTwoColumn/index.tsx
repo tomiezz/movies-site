@@ -43,7 +43,9 @@ const Banner = ({ descripttion, href, title, imgUrl }: Props) => {
           type="link"
           props={{ className: "inline-block mt-4 md:mt-8", href }}
         >
-          Read More
+          <>
+            Read More <p className="hidden"> </p>about movie
+          </>
         </Button>
       </div>
     </div>
